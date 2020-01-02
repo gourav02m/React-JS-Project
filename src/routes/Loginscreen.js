@@ -16,6 +16,34 @@ class Loginscreen extends Component {
   }
 
   
+  todoshow(event){
+    
+   // alert('dgfdd');
+
+    const ul = document.querySelector('ul');
+    // event.preventDefault();
+  // const gl = this.getElementbyId("justtest");
+
+const input = document.getElementById('item');
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+const data = JSON.parse(localStorage.getItem('items'));
+ 
+   
+   var text = JSON.stringify(data);
+   // alert(text);
+   var test = text.split(",");
+   // alert(test[1]);
+
+  var t=0;
+  while(t<20){
+  const pi = document.createElement('pi');
+  pi.textContent=test[t];
+   alert(pi.textContent);
+  //ul.append(pi);
+  t=t+1; 
+  }
+
+  }
 
   // addtodo(event) {
   //   alert('A name was submitted: ' + this.state.value);
@@ -35,7 +63,6 @@ class Loginscreen extends Component {
   {
     
     event.preventDefault();
-  
 const ul = document.querySelector('ul');
 const input = document.getElementById('item');
 let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
@@ -44,9 +71,9 @@ localStorage.setItem('items', JSON.stringify(itemsArray));
 const data = JSON.parse(localStorage.getItem('items'));
 
 const liMaker = (text) => {
-  const li = document.createElement('li');
+  const li = document.createElement('itemss');
   li.textContent = text;
-  ul.appendChild(li);
+  ul.append(li);
 }
 
 
@@ -66,10 +93,22 @@ const liMaker = (text) => {
     // list.append('<li>Match</li>');
   }
 
+  
+
 render() {
     return (
+      <body /*onload={this.todoshow()}*/>
+
+
+
+
+
+
+      
 
       <div className="Todo">
+
+      
         <form onSubmit={this.addtodo}>
        
           <label>Add To Do </label>
@@ -82,12 +121,17 @@ render() {
 
         <div>
         <h2>To Do List</h2>
-        <ul>
+        <ul id="justtest">
+        <li id="itemss">
+        </li>
        </ul>
         </div>
 
         
       </div>
+      
+      </body>
+    
     );
   }
 }
