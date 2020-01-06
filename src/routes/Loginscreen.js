@@ -15,7 +15,21 @@ class Loginscreen extends Component {
     this.setState({value: event.target.value});
   }
 
+ totest(){
   
+  const data = JSON.parse(localStorage.getItem('items'));
+ if(data!=null){
+
+var text = [];
+  return data.map((item, index) => (
+    <li className="indent" key={index}>
+        {item}
+    </li>
+));
+  } 
+ 
+ }
+  /*
   todoshow(event){
     
    // alert('dgfdd');
@@ -44,7 +58,7 @@ const data = JSON.parse(localStorage.getItem('items'));
   }
 
   }
-
+*/
   // addtodo(event) {
   //   alert('A name was submitted: ' + this.state.value);
   //   event.preventDefault();
@@ -71,7 +85,7 @@ localStorage.setItem('items', JSON.stringify(itemsArray));
 const data = JSON.parse(localStorage.getItem('items'));
 
 const liMaker = (text) => {
-  const li = document.createElement('itemss');
+  const li = document.createElement('li');
   li.textContent = text;
   ul.append(li);
 }
@@ -99,11 +113,6 @@ render() {
     return (
       <body /*onload={this.todoshow()}*/>
 
-
-
-
-
-
       
 
       <div className="Todo">
@@ -116,14 +125,13 @@ render() {
          <input id="item" type="text" value={this.state.value} onChange={this.handleChange} />
 
 
-          <button type="submit" >Add</button>
+          <input type="submit" value="Add" />
         </form>
 
         <div>
         <h2>To Do List</h2>
-        <ul id="justtest">
-        <li id="itemss">
-        </li>
+        <ul>
+        {this.totest()}
        </ul>
         </div>
 
