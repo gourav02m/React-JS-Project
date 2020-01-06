@@ -29,55 +29,13 @@ var text = [];
   } 
  
  }
-  /*
-  todoshow(event){
-    
-   // alert('dgfdd');
-
-    const ul = document.querySelector('ul');
-    // event.preventDefault();
-  // const gl = this.getElementbyId("justtest");
-
-const input = document.getElementById('item');
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-const data = JSON.parse(localStorage.getItem('items'));
  
-   
-   var text = JSON.stringify(data);
-   // alert(text);
-   var test = text.split(",");
-   // alert(test[1]);
-
-  var t=0;
-  while(t<20){
-  const pi = document.createElement('pi');
-  pi.textContent=test[t];
-   alert(pi.textContent);
-  //ul.append(pi);
-  t=t+1; 
-  }
-
-  }
-*/
-  // addtodo(event) {
-  //   alert('A name was submitted: ' + this.state.value);
-  //   event.preventDefault();
-  // }
-
-  // constructor()
-  // {
-  //   super();
-  //   if(localStorage.getItem("loggedin") != '1')
-  //   {
-  //     this.props.history.push('/Loginpage');
-  //   }
-  // }
 
   addtodo(event)
   {
     
     event.preventDefault();
-const ul = document.querySelector('ul');
+const ul = document.querySelector('ol');
 const input = document.getElementById('item');
 let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
@@ -96,31 +54,22 @@ const liMaker = (text) => {
   liMaker(input.value);
   input.value = "";
 
-
-
-
-    // localStorage.SetItem("item","this.state.item");
-
-    // alert(localStorage.getItem("item"));
-    // var list = this.getElementbyId('mylist');
-
-    // list.append('<li>Match</li>');
   }
 
   
 
 render() {
     return (
-      <body /*onload={this.todoshow()}*/>
+      <body style={{background: "azure"}}>
 
       
 
       <div className="Todo">
 
       
-        <form onSubmit={this.addtodo}>
+        <form onSubmit={this.addtodo} style={{textAlign: "center"}}>
        
-          <label>Add To Do </label>
+          <h2>Add To Do:-</h2>
           
          <input id="item" type="text" value={this.state.value} onChange={this.handleChange} />
 
@@ -128,11 +77,11 @@ render() {
           <input type="submit" value="Add" />
         </form>
 
-        <div>
-        <h2>To Do List</h2>
-        <ul>
+        <div><br/>
+        <h2>To Do List :-</h2>
+        <ol>
         {this.totest()}
-       </ul>
+       </ol>
         </div>
 
         
