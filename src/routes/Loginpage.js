@@ -96,9 +96,13 @@ import  {Link} from 'react-router-dom'
   }
 
   render() {
+    const mystyle ={
+      textAlign: "center"
+    };
     return (
-      <div className="Login">
-        <form onSubmit={this.handleSubmit}>
+      <div className="Login" style={{background: "azure"}}>
+      <h1 style={{backgroundColor: "DodgerBlue",textAlign: "center"}}>Login Page</h1>
+        <form onSubmit={this.handleSubmit} style={mystyle}>
           {
             this.state.error &&
             <h3 data-test="error" onClick={this.dismissError}>
@@ -106,11 +110,11 @@ import  {Link} from 'react-router-dom'
               {this.state.error}
             </h3>
           }
-          <label>User Name</label>
-          <input type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
+          <label>UserName</label>
+          <input type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} /><br/>
 
-          <label>Password</label>
-          <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
+          <label>Password  </label>
+          <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} /><br/>
 
           <input type="submit" value="Log In" data-test="submit" />
         </form>
