@@ -14,6 +14,17 @@ class Loginscreen extends Component {
   handleChange(event) {
     this.setState({value: event.target.value});
   }
+  todelete(event){
+  const data = JSON.parse(localStorage.getItem('items'));
+   var index = event.target.getAttribute('data-key');
+   const list = JSON.parse(localStorage.getItem('items'));
+   data.splice(index,1);
+   this.setState({
+    data: list
+  });
+   localStorage.setItem('items', JSON.stringify(data));
+
+  }
 
  totest(){
   
@@ -24,6 +35,7 @@ var text = [];
   return data.map((item, index) => (
     <li className="indent" key={index}>
         {item}
+        <input type="button" onClick={this.todelete.bind(this)} data-key={index} value="delete"/>
     </li>
 ));
   } 
